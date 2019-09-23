@@ -18,4 +18,10 @@ class Dog
     DB[:conn].execute(drop)
   end
   
+  def save
+    dog = Dog.
+    
+  end
+  
+  
 end
