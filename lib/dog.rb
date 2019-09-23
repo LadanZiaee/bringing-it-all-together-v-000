@@ -28,13 +28,21 @@ class Dog
     end
   end
   
-  def self.create(name, grade)
-    
+  def self.create(name, breed)
+    dogs = Dog.new(name, breed)
+    dogs.save
+    dogs
   end
   
   def self.new_from_db(row)
     dogs = Dog.new(row[0], row[1], row[2])
   end
   
+  def self.find_by_id(num)
+    sql = "SELECT * FROM dogs WHERE id = ?;"
+    DB[:conn].execute(sql, num).map do |row|
+      Dog.new(row[0], row[1], row[2])
+    end
+  end
   
 end
