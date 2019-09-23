@@ -47,7 +47,7 @@ class Dog
   def self.find_by_id(num)
     sql = "SELECT * FROM dogs WHERE id = ? LIMIT 1;"
     DB[:conn].execute(sql, num).map do |row|
-      Dog.new(row[0], row[1], row[2])
+      Dog.new(id: row[0],name: row[1],breed: row[2])
     end
   end
   
