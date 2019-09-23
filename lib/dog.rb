@@ -22,7 +22,8 @@ class Dog
     if self.id
       self.update
     else
-      sql = 
+      sql = "INSERT INTO dogs VALUES name = ?, breed = ?, name,breed"
+      DB[:conn].execute
   end
   def self.new_from_db(row)
     dogs = Dog.new(row[0], row[1], row[2])
