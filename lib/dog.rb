@@ -18,6 +18,12 @@ class Dog
     DB[:conn].execute(drop)
   end
   
+  def save
+    if self.id
+      self.update
+    else
+      sql = 
+  end
   def self.new_from_db(row)
     dogs = Dog.new(row[0], row[1], row[2])
   end
