@@ -18,9 +18,11 @@ class Dog
     DB[:conn].execute(drop)
   end
   
-  def save
-    dog = Dog.
-    
+  def new_from_db
+    sql = "SELECT * FROM dogs"
+    DB[:conn].execute(sql).map do |row|
+      dogs = Dogs.new(row[0], row[1], row[2])
+    end.first
   end
   
   
