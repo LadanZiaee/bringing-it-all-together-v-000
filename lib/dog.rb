@@ -24,6 +24,7 @@ class Dog
     else
       sql = "INSERT INTO dogs VALUES name = ?, breed = ?"
       DB[:conn].execute(sql, self.name, self.breed)
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0
   end
   def self.new_from_db(row)
     dogs = Dog.new(row[0], row[1], row[2])
